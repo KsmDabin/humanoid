@@ -30,9 +30,15 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4">Innovative Humanoid Solutions</h1>
-          <p className="text-xl text-gray-700">DABINKO's Cutting-edge Humanoid Technology Leading the Future</p>
-        </section>
+        <h1 className="text-4xl font-bold mb-4">Innovative Humanoid Solutions</h1>
+        <p className="text-xl text-gray-700">DABINKO&apos;s Cutting-edge Humanoid Technology</p>
+      </section>
+
+      <section className="bg-white/80 rounded-xl p-8 mb-16">
+        <p className="text-gray-700">
+          Say &quot;Hey DABINKO&quot; to activate voice commands.
+        </p>
+      </section>
 
         {/* Humanoid Gallery */}
         <section className="mb-16">
