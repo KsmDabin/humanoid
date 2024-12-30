@@ -49,14 +49,15 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8 text-center">Humanoid Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {humanoidImages.map((image, index) => (
-              <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+              <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <Image
-  src="/dabinko-logo.svg"  // 파일 확장자만 변경
-  alt="DABINKO Logo"
-  width={200}
-  height={80}
-  priority
-/>
+                  src={image}
+                  alt={`Humanoid ${index + 1}`}
+                  fill
+                  style={{
+                    objectFit: 'cover'
+                  }}
+                />
               </div>
             ))}
           </div>
