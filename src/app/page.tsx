@@ -127,7 +127,7 @@ export default function Home() {
         <footer className="text-center text-gray-700">
           <p>© 2024 DABINKO. All rights reserved.</p>
           <div className="mt-4">
-            <p>Contact: info@dabinko.com</p>
+            <p>Contact: dabinko@kita.net</p>
             <p>Address: Innovation Center, Technology Park, Seoul, South Korea</p>
           </div>
         </footer>
