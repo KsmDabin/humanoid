@@ -19,13 +19,17 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         {/* Header with Logo */}
         <header className="flex justify-center mb-12">
-        <Image
-  src="/dabinko-logo.svg"  // 실제 파일 확장자와 일치하게 수정
-  alt="DABINKO Logo"
-  width={200}
-  height={80}
-  priority
-/>
+          <div className="relative w-[200px] h-[80px]">
+            <Image
+              src="/dabinko-logo.svg"  // 또는 .png
+              alt="DABINKO Logo"
+              fill
+              style={{
+                objectFit: 'contain'
+              }}
+              priority
+            />
+          </div>
         </header>
 
         {/* Hero Section */}
