@@ -65,8 +65,8 @@ export default function Home() {
             <div className="border-b pb-4">
               <h3 className="text-xl font-semibold mb-2">Basic Operation</h3>
               <p className="text-gray-700">
-                1. Press and hold the power button for 3 seconds to turn on the humanoid.<br/>
-                2. Say "Hey DABINKO" to activate voice commands.<br/>
+                1. Press and hold the power button for 3 seconds.<br/>
+                2. Say &quot;Hey DABINKO&quot; to activate voice commands.<br/>
                 3. Issue your desired command or function.
               </p>
             </div>
