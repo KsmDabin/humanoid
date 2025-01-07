@@ -1,27 +1,14 @@
 import Image from "next/image";
 
 export default function Home() {
-  const humanoidImages = [
-    "/humanoid1.jpg",
-    "/humanoid2.jpg",
-    "/humanoid3.jpg",
-    "/humanoid4.jpg",
-    "/humanoid5.jpg",
-    "/humanoid6.jpg",
-    "/humanoid7.jpg",
-    "/humanoid8.jpg",
-    "/humanoid9.jpg",
-    "/humanoid10.jpg",
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-100 to-green-400">
       <div className="container mx-auto px-4 py-8">
-        {/* Header with Logo */}
+        {/* Header with DABINKO Logo */}
         <header className="flex justify-center mb-12">
           <div className="relative w-[200px] h-[80px]">
             <Image
-              src="/dabinko-logo.svg"  // 또는 .png
+              src="/dabinko-logo.svg"
               alt="DABINKO Logo"
               fill
               style={{
@@ -34,33 +21,8 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="text-center mb-16">
-        <h1 className="text-4xl font-bold mb-4">Innovative Humanoid Solutions</h1>
-        <p className="text-xl text-gray-700">DABINKO&apos;s Cutting-edge Humanoid Technology</p>
-      </section>
-
-      <section className="bg-white/80 rounded-xl p-8 mb-16">
-        <p className="text-gray-700">
-          Say &quot;Hey DABINKO&quot; to activate voice commands.
-        </p>
-      </section>
-
-        {/* Humanoid Gallery */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Humanoid Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {humanoidImages.map((image, index) => (
-              <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src={image}
-                  alt={`Humanoid ${index + 1}`}
-                  fill
-                  style={{
-                    objectFit: 'cover'
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+          <h1 className="text-4xl font-bold mb-4">Innovative Humanoid Solutions</h1>
+          <p className="text-xl text-gray-700">DABINKO&apos;s Cutting-edge Humanoid Technology</p>
         </section>
 
         {/* User Manual Section */}
