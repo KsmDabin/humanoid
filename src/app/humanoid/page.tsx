@@ -24,12 +24,12 @@ export default function HumanoidPage() {
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="w-[200px] h-[80px] flex items-center">
+          <Link href="/" className="w-[100px] h-[40px] flex items-center">
             <Image
               src="/dabinko-logo.jpg"
               alt="DABINKO Logo"
-              width={200}
-              height={80}
+              width={100}
+              height={40}
               style={{
                 maxWidth: '100%',
                 height: 'auto'
