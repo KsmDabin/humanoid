@@ -27,10 +27,11 @@ export default function HumanoidPage() {
             <img
               src="/dabinko-logo.jpg"
               alt="DABINKO Logo"
+              width={200}
+              height={80}
               style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain'
+                maxWidth: '100%',
+                height: 'auto'
               }}
             />
           </a>
