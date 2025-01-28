@@ -23,15 +23,11 @@ export default function HumanoidPage() {
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div className="relative w-[200px] h-[80px]">
-            <Image
+          <div className="w-[200px] h-[80px] flex items-center">
+            <img
               src="/dabinko-logo.jpg"
               alt="DABINKO Logo"
-              fill
-              style={{
-                objectFit: 'contain'
-              }}
-              priority
+              className="w-full h-full object-contain"
             />
           </div>
 

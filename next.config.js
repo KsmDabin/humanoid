@@ -2,7 +2,12 @@
 const nextConfig = {
   images: {
     unoptimized: true,
-    domains: ['localhost', 'humanoid-dbk.vercel.app'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   output: 'standalone',
 }
