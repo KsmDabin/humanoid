@@ -3,18 +3,18 @@ import Link from "next/link";
 
 export default function HumanoidPage() {
   const images = [
-    { id: 1, path: '/humanoids/humanoid1.jpeg' },
-    { id: 2, path: '/humanoids/humanoid2.jpeg' },
-    { id: 3, path: '/humanoids/humanoid3.jpeg' },
-    { id: 4, path: '/humanoids/humanoid4.jpeg' },
-    { id: 5, path: '/humanoids/humanoid5.jpeg' },
-    { id: 6, path: '/humanoids/humanoid6.jpeg' },
-    { id: 7, path: '/humanoids/humanoid7.jpeg' },
-    { id: 8, path: '/humanoids/humanoid8.jpeg' },
-    { id: 9, path: '/humanoids/humanoid9.jpeg' },
-    { id: 10, path: '/humanoids/humanoid10.jpeg' },
-    { id: 11, path: '/humanoids/humanoid11.jpeg' },
-    { id: 12, path: '/humanoids/humanoid12.jpeg' },
+    "/humanoids/humanoid1.jpeg",
+    "/humanoids/humanoid2.jpeg",
+    "/humanoids/humanoid3.jpeg",
+    "/humanoids/humanoid4.jpeg",
+    "/humanoids/humanoid5.jpeg",
+    "/humanoids/humanoid6.jpeg",
+    "/humanoids/humanoid7.jpeg",
+    "/humanoids/humanoid8.jpeg",
+    "/humanoids/humanoid9.jpeg",
+    "/humanoids/humanoid10.jpeg",
+    "/humanoids/humanoid11.jpeg",
+    "/humanoids/humanoid12.jpeg"
   ];
 
   return (
@@ -30,11 +30,11 @@ export default function HumanoidPage() {
           <h1 className="text-4xl font-bold mb-8 text-center">Humanoid Gallery</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((img) => (
-              <div key={img.id} className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
+            {images.map((src, index) => (
+              <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src={img.path}
-                  alt={`Humanoid ${img.id}`}
+                  src={src}
+                  alt={`Humanoid ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
               </div>
