@@ -72,8 +72,16 @@ export default function HumanoidPage() {
       <footer className="bg-black text-white py-6">
         <div className="container mx-auto px-4 text-center">
           <p>© 2024 DABINKO. All rights reserved.</p>
-          <div className="mt-4">
+          <div className="mt-4 space-y-2">
             <p>Contact: dabinko@kita.net</p>
+            <p>SNS & Mobile: +82108776467</p>
+            <p>
+              SNS: WhatsApp, WeChat, Telegram
+              <br />
+              <span className="text-sm text-gray-400">
+                (Please contact via mobile number first to get email access)
+              </span>
+            </p>
             <p>Address: Innovation Center, Technology Park, Seoul, South Korea</p>
           </div>
         </div>
