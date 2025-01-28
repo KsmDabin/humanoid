@@ -74,10 +74,13 @@ export default function HumanoidPage() {
           <p>© 2024 DABINKO. All rights reserved.</p>
           <div className="mt-4 space-y-2">
             <p>Contact: dabinko@kita.net</p>
-            <p>Mobile: +82108776467</p>
-            <p>SNS: WhatsApp, WeChat, Telegram</p>
-            <p className="text-sm text-gray-400">
-              (모바일 번호로 먼저 연락하면 이메일을 사용할 수 있습니다)
+            <p>SNS & Mobile: +82108776467</p>
+            <p>
+              SNS: WhatsApp, WeChat, Telegram
+              <br />
+              <span className="text-sm text-gray-400">
+                (Please contact via mobile number first to get email access)
+              </span>
             </p>
             <p>Address: Innovation Center, Technology Park, Seoul, South Korea</p>
           </div>
