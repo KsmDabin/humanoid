@@ -2,20 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function HumanoidPage() {
-  const humanoidImages = [
-    "/humanoids/humanoid1.jpeg",
-    "/humanoids/humanoid2.jpeg",
-    "/humanoids/humanoid3.jpeg",
-    "/humanoids/humanoid4.jpeg",
-    "/humanoids/humanoid5.jpeg",
-    "/humanoids/humanoid6.jpeg",
-    "/humanoids/humanoid7.jpeg",
-    "/humanoids/humanoid8.jpeg",
-    "/humanoids/humanoid9.jpeg",
-    "/humanoids/humanoid10.jpeg",
-    "/humanoids/humanoid11.jpeg",
-    "/humanoids/humanoid12.jpeg",
-  ];
+  // 이미지 배열 수정
+  const images = Array.from({ length: 12 }, (_, i) => ({
+    src: `/humanoids/humanoid${i + 1}.jpeg`,
+    alt: `Humanoid ${i + 1}`
+  }));
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -31,15 +22,15 @@ export default function HumanoidPage() {
           
           {/* Humanoid Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {humanoidImages.map((image, index) => (
-              <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+            {images.map((image, index) => (
+              <div key={index} className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src={image}
-                  alt={`Humanoid ${index + 1}`}
+                  src={image.src}
+                  alt={image.alt}
                   fill
-                  style={{
-                    objectFit: 'cover'
-                  }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  style={{ objectFit: 'cover' }}
+                  priority={index < 4}
                 />
               </div>
             ))}
