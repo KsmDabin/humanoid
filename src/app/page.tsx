@@ -8,7 +8,7 @@ export default function Home() {
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div className="relative w-[150px] h-[60px]">
+          <div className="relative w-[200px] h-[80px]">
             <Image
               src="/dabinko-logo.svg"
               alt="DABINKO Logo"
