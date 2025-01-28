@@ -1,5 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HumanoidPage() {
   const images = [
@@ -23,8 +24,8 @@ export default function HumanoidPage() {
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="w-[200px] h-[80px] flex items-center">
-            <img
+          <Link href="/" className="w-[200px] h-[80px] flex items-center">
+            <Image
               src="/dabinko-logo.jpg"
               alt="DABINKO Logo"
               width={200}
@@ -34,17 +35,17 @@ export default function HumanoidPage() {
                 height: 'auto'
               }}
             />
-          </a>
+          </Link>
 
           {/* Navigation */}
           <nav className="flex items-center space-x-6">
-            <a href="/about" className="hover:text-gray-300 transition-colors">About</a>
-            <a href="/humanoid" className="hover:text-gray-300 transition-colors">Humanoid</a>
-            <a href="/healthcare" className="hover:text-gray-300 transition-colors">Healthcare</a>
-            <a href="/mobile-control" className="hover:text-gray-300 transition-colors">Control with Mobile</a>
-            <a href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</a>
-            <a href="/service" className="hover:text-gray-300 transition-colors">A/S</a>
-            <a href="/en" className="hover:text-gray-300 transition-colors">English</a>
+            <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
+            <Link href="/humanoid" className="hover:text-gray-300 transition-colors">Humanoid</Link>
+            <Link href="/healthcare" className="hover:text-gray-300 transition-colors">Healthcare</Link>
+            <Link href="/mobile-control" className="hover:text-gray-300 transition-colors">Control with Mobile</Link>
+            <Link href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</Link>
+            <Link href="/service" className="hover:text-gray-300 transition-colors">A/S</Link>
+            <Link href="/en" className="hover:text-gray-300 transition-colors">English</Link>
           </nav>
         </div>
       </header>
@@ -57,10 +58,11 @@ export default function HumanoidPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {images.map((src, index) => (
               <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <img
+                <Image
                   src={src}
                   alt={`Humanoid ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  fill
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
             ))}
