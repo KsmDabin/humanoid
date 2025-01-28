@@ -21,7 +21,25 @@ export default function HumanoidPage() {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="bg-black text-white py-4 px-6">
-        {/* ... header 내용 ... */}
+        <div className="container mx-auto flex items-center justify-between">
+          {/* Logo */}
+          <div className="relative w-[200px] h-[80px]">
+            <Image
+              src="/dabinko-logo.jpg"
+              alt="DABINKO Logo"
+              fill
+              style={{
+                objectFit: 'contain'
+              }}
+              priority
+            />
+          </div>
+
+          {/* Navigation */}
+          <nav className="flex items-center space-x-6">
+            {/* ... 기존 네비게이션 유지 ... */}
+          </nav>
+        </div>
       </header>
 
       {/* Main Content */}
