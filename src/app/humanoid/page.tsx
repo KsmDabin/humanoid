@@ -2,11 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function HumanoidPage() {
-  // 이미지 배열 수정
-  const images = Array.from({ length: 12 }, (_, i) => ({
-    src: `/humanoids/humanoid${i + 1}.jpeg`,
-    alt: `Humanoid ${i + 1}`
-  }));
+  const images = [
+    { id: 1, path: '/humanoids/humanoid1.jpeg' },
+    { id: 2, path: '/humanoids/humanoid2.jpeg' },
+    { id: 3, path: '/humanoids/humanoid3.jpeg' },
+    { id: 4, path: '/humanoids/humanoid4.jpeg' },
+    { id: 5, path: '/humanoids/humanoid5.jpeg' },
+    { id: 6, path: '/humanoids/humanoid6.jpeg' },
+    { id: 7, path: '/humanoids/humanoid7.jpeg' },
+    { id: 8, path: '/humanoids/humanoid8.jpeg' },
+    { id: 9, path: '/humanoids/humanoid9.jpeg' },
+    { id: 10, path: '/humanoids/humanoid10.jpeg' },
+    { id: 11, path: '/humanoids/humanoid11.jpeg' },
+    { id: 12, path: '/humanoids/humanoid12.jpeg' },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -20,17 +29,13 @@ export default function HumanoidPage() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-8 text-center">Humanoid Gallery</h1>
           
-          {/* Humanoid Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((image, index) => (
-              <div key={index} className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
-                  priority={index < 4}
+            {images.map((img) => (
+              <div key={img.id} className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src={img.path}
+                  alt={`Humanoid ${img.id}`}
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
