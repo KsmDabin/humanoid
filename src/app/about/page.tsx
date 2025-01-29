@@ -16,15 +16,15 @@ export default function AboutPage() {
 
             {/* Healthcare Section */}
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold">1. Healthcare and Elderly Care</h2>
+              <h2 className="text-2xl font-bold">Manufacturing and Industry</h2>
               <p className="leading-relaxed">
-                Humanoid robots are making significant strides in healthcare, particularly in elderly care. They serve as companions and caregivers, offering emotional support and assistance with daily tasks. For instance, robots like Grace can recognize emotions, show empathy, and understand over 100 languages, making them ideal for providing personalized care to the elderly. These robots can:
+              In industrial settings, humanoid robots are improving efficiency and safety. They can:
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Monitor vital signs and provide medication reminders</li>
-                <li>Assist with mobility and self-care tasks</li>
-                <li>Offer companionship to reduce feelings of loneliness</li>
-                <li>Facilitate communication between patients and healthcare providers</li>
+                <li>Perform repetitive and potentially dangerous tasks</li>
+                <li>Assist in assembly line operations</li>
+                <li>Conduct inspections and maintenance in hazardous environments</li>
+                <li>Collaborate with human workers to enhance productivity</li>
               </ul>
             </section>
           </div>
