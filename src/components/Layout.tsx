@@ -9,12 +9,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="w-[100px] h-[40px] flex items-center">
+          <Link href="/" className="w-[70px] h-[28px] flex items-center">
             <Image
               src="/dabinko-logo.jpg"
               alt="DABINKO Logo"
-              width={100}
-              height={40}
+              width={70}
+              height={28}
               style={{
                 maxWidth: '100%',
                 height: 'auto'
