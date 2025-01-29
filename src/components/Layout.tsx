@@ -8,16 +8,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="w-[70px] h-[28px] flex items-center">
-            <Image
+          {/* Logo - 크기를 더 작게 조정 */}
+          <Link href="/" className="w-[50px] h-[20px] flex items-center">
+            <img
               src="/dabinko-logo.jpg"
               alt="DABINKO Logo"
-              width={70}
-              height={28}
               style={{
-                maxWidth: '100%',
-                height: 'auto'
+                width: '50px',
+                height: '20px',
+                objectFit: 'contain'
               }}
             />
           </Link>
