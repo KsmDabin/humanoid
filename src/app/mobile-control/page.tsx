@@ -9,32 +9,39 @@ export default function MobileControlPage() {
           <h1 className="text-4xl font-bold mb-8 text-center">Control with Mobile</h1>
           
           <div className="space-y-8 text-gray-800">
-            <section className="space-y-4">
-              <p className="text-lg leading-relaxed">
-                Our humanoid robots can be easily controlled through your mobile device, offering intuitive and convenient operation. The mobile control system provides:
-              </p>
-              
-              <ul className="list-disc pl-6 space-y-2 mt-4">
-                <li>Real-time robot control through smartphone app</li>
-                <li>User-friendly interface for all skill levels</li>
-                <li>Remote monitoring and operation capabilities</li>
-                <li>Secure connection and data transmission</li>
-                <li>Customizable control settings</li>
-                <li>Multi-platform support (iOS and Android)</li>
-              </ul>
+            <p className="text-lg leading-relaxed">
+              To control a humanoid robot using a smartphone, follow these steps:
+            </p>
 
-              <p className="text-lg leading-relaxed mt-6">
-                The mobile control feature allows users to:
-              </p>
+            <ol className="space-y-6 list-decimal pl-6">
+              <li className="text-lg">
+                <span className="font-semibold">Choose the Right Components:</span> Use a microcontroller (like Arduino) and a Bluetooth module (such as HC-05) to establish communication between the smartphone and the robot.
+              </li>
 
-              <ul className="list-disc pl-6 space-y-2 mt-4">
-                <li>Control robot movements and actions</li>
-                <li>Monitor robot status and performance</li>
-                <li>Schedule and automate tasks</li>
-                <li>Receive real-time notifications</li>
-                <li>Access usage history and analytics</li>
-              </ul>
-            </section>
+              <li className="text-lg">
+                <span className="font-semibold">Install a Control App:</span> Download a mobile app like Dabble, which allows you to send commands from your phone to the robot. This app can be found on both Android and iOS platforms.
+              </li>
+
+              <li className="text-lg">
+                <span className="font-semibold">Connect the Bluetooth Module:</span> Integrate the Bluetooth module into your robot's circuitry. Ensure that it is properly connected to the microcontroller, which will interpret the commands received from the smartphone.
+              </li>
+
+              <li className="text-lg">
+                <span className="font-semibold">Pair Your Devices:</span> Turn on Bluetooth on your smartphone and pair it with the robot's Bluetooth module. You may need to enter a password (commonly "1234" or "0000") for pairing.
+              </li>
+
+              <li className="text-lg">
+                <span className="font-semibold">Program the Robot:</span> Write code using platforms like PictoBlox or Arduino IDE to define how the robot should respond to different commands sent from the app, such as moving forward, backward, turning, or performing specific actions.
+              </li>
+
+              <li className="text-lg">
+                <span className="font-semibold">Control the Robot:</span> Once everything is set up, use the app's interface to control the robot's movements in real-time by pressing buttons or using sliders available in the app.
+              </li>
+            </ol>
+
+            <p className="text-lg leading-relaxed mt-6">
+              This setup allows for versatile control of humanoid robots, enabling users to command them easily from their smartphones.
+            </p>
           </div>
         </div>
       </main>
