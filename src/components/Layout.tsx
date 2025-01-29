@@ -7,14 +7,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
-          {/* Logo - 원래 크기(100px x 40px)에서 30% 줄임 (70px x 28px) */}
+          {/* Logo - 크기를 20% 증가 (70px -> 84px, 28px -> 34px) */}
           <Link href="/" className="flex items-center">
             <img
               src="/dabinko-logo.jpg"
               alt="DABINKO Logo"
               style={{
-                width: '70px',    // 100px에서 30% 줄임
-                height: '28px',   // 40px에서 30% 줄임
+                width: '84px',    // 70px에서 20% 증가
+                height: '34px',   // 28px에서 20% 증가
                 objectFit: 'contain'
               }}
             />
