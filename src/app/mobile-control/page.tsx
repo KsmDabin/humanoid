@@ -23,11 +23,11 @@ export default function MobileControlPage() {
               </li>
 
               <li className="text-lg">
-                <span className="font-semibold">Connect the Bluetooth Module:</span> Integrate the Bluetooth module into your robot's circuitry. Ensure that it is properly connected to the microcontroller, which will interpret the commands received from the smartphone.
+                <span className="font-semibold">Connect the Bluetooth Module:</span> Integrate the Bluetooth module into your robot&apos;s circuitry. Ensure that it is properly connected to the microcontroller, which will interpret the commands received from the smartphone.
               </li>
 
               <li className="text-lg">
-                <span className="font-semibold">Pair Your Devices:</span> Turn on Bluetooth on your smartphone and pair it with the robot's Bluetooth module. You may need to enter a password (commonly "1234" or "0000") for pairing.
+                <span className="font-semibold">Pair Your Devices:</span> Turn on Bluetooth on your smartphone and pair it with the robot&apos;s Bluetooth module. You may need to enter a password (commonly &quot;1234&quot; or &quot;0000&quot;) for pairing.
               </li>
 
               <li className="text-lg">
@@ -35,7 +35,7 @@ export default function MobileControlPage() {
               </li>
 
               <li className="text-lg">
-                <span className="font-semibold">Control the Robot:</span> Once everything is set up, use the app's interface to control the robot's movements in real-time by pressing buttons or using sliders available in the app.
+                <span className="font-semibold">Control the Robot:</span> Once everything is set up, use the app&apos;s interface to control the robot&apos;s movements in real-time by pressing buttons or using sliders available in the app.
               </li>
             </ol>
 
