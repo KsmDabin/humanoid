@@ -83,6 +83,31 @@ export default function HomePage() {
               </div>
             </section>
           </div>
+
+          <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-4 z-50">
+            {/* WhatsApp */}
+            <a href="https://wa.me/8615161637863" target="_blank" rel="noopener noreferrer" 
+              className="flex items-center justify-center w-12 h-12 bg-green-500 rounded-full hover:bg-green-600 transition-colors">
+              <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-8 h-8" />
+            </a>
+            
+            {/* Skype */}
+            <a href="skype:8615161637863?chat" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full hover:bg-blue-600 transition-colors">
+              <img src="/skype-icon.png" alt="Skype" className="w-8 h-8" />
+            </a>
+            
+            {/* Email */}
+            <a href="mailto:dabinko@kita.net" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-12 h-12 bg-yellow-500 rounded-full hover:bg-yellow-600 transition-colors">
+              <img src="/email-icon.png" alt="Email" className="w-8 h-8" />
+            </a>
+            
+            {/* WeChat */}
+            <div className="flex items-center justify-center w-12 h-12 bg-green-600 rounded-full hover:bg-green-700 transition-colors cursor-pointer">
+              <img src="/wechat-icon.png" alt="WeChat: 8615161637863" className="w-8 h-8" />
+            </div>
+          </div>
         </div>
       </main>
     </Layout>
