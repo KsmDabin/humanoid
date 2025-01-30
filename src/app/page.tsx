@@ -59,15 +59,6 @@ export default function HomePage() {
           </section>
 
           <div className="space-y-8">
-            <section>
-              <h3 className="text-xl font-bold mb-4">User Manual</h3>
-              <h4 className="font-semibold mb-2">Basic Operation</h4>
-              <ol className="list-decimal pl-6 space-y-2">
-                <li>Press and hold the power button for 3 seconds.</li>
-                <li>Say &quot;Hey DABINKO&quot; to activate voice commands.</li>
-                <li>Issue your desired command or function.</li>
-              </ol>
-            </section>
             <section className="bg-white/80 rounded-xl p-8 mb-16">
               <h2 className="text-3xl font-bold mb-8 text-center">Technical Specifications</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
