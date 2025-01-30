@@ -21,20 +21,9 @@ export default function HomePage() {
     <Layout>
       <main className="flex-grow bg-gradient-to-b from-green-100 to-green-400 py-8">
         <div className="container mx-auto px-4">
-          <header className="flex justify-center mb-12">
-            <div className="relative w-[200px] h-[80px]">
-              <Image
-                src="/dabinko-logo.svg"
-                alt="DABINKO Logo"
-                fill
-                style={{
-                  objectFit: 'contain'
-                }}
-                priority
-              />
-            </div>
-          </header>
-
+          <h1 className="text-4xl font-bold mb-8 text-center">Innovative Humanoid Solutions</h1>
+          <h2 className="text-2xl mb-6 text-center">DABINKO&apos;s Cutting-edge Humanoid Technology</h2>
+          
           <section className="text-center mb-16">
             <h1 className="text-4xl font-bold mb-4">Innovative Humanoid Solutions</h1>
             <p className="text-xl text-gray-700">DABINKO&apos;s Cutting-edge Humanoid Technology</p>
@@ -82,31 +71,6 @@ export default function HomePage() {
                 </div>
               </div>
             </section>
-          </div>
-
-          <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-4 z-50">
-            {/* WhatsApp */}
-            <a href="https://wa.me/8615161637863" target="_blank" rel="noopener noreferrer" 
-              className="flex items-center justify-center w-12 h-12 bg-green-500 rounded-full hover:bg-green-600 transition-colors">
-              <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-8 h-8" />
-            </a>
-            
-            {/* Skype */}
-            <a href="skype:8615161637863?chat" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full hover:bg-blue-600 transition-colors">
-              <img src="/skype-icon.png" alt="Skype" className="w-8 h-8" />
-            </a>
-            
-            {/* Email */}
-            <a href="mailto:dabinko@kita.net" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 bg-yellow-500 rounded-full hover:bg-yellow-600 transition-colors">
-              <img src="/email-icon.png" alt="Email" className="w-8 h-8" />
-            </a>
-            
-            {/* WeChat */}
-            <div className="flex items-center justify-center w-12 h-12 bg-green-600 rounded-full hover:bg-green-700 transition-colors cursor-pointer">
-              <img src="/wechat-icon.png" alt="WeChat: 8615161637863" className="w-8 h-8" />
-            </div>
           </div>
         </div>
       </main>
