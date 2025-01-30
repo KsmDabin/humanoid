@@ -33,11 +33,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* Fixed Contact Text Links - 우측 정렬 및 크기 15% 감소 */}
+      {/* Fixed Contact Text Links - 연락처 정보 업데이트 */}
       <div className="fixed right-1 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
         {/* WhatsApp */}
         <a
-          href="https://wa.me/8615161637863"
+          href="https://wa.me/821087764677"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
@@ -45,17 +45,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <span className="text-[#25D366] font-semibold">WhatsApp</span>
         </a>
 
-        {/* WeChat */}
-        <a
-          href="#"
-          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
-        >
-          <span className="text-[#07C160] font-semibold">WeChat</span>
-        </a>
+        {/* WeChat - QR 코드 표시 */}
+        <div className="relative group">
+          <a
+            href="#"
+            className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
+          >
+            <span className="text-[#07C160] font-semibold">WeChat</span>
+          </a>
+          {/* QR 코드 이미지 - hover 시 표시 */}
+          <div className="hidden group-hover:block absolute right-full top-0 mr-2 bg-white p-2 rounded shadow-lg">
+            <img src="/wechat-qr.jpg" alt="WeChat QR Code" className="w-32 h-32" />
+          </div>
+        </div>
 
         {/* Telegram */}
         <a
-          href="https://t.me/8615161637863"
+          href="https://t.me/821087764677"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
