@@ -1,15 +1,63 @@
 "use client";
 import Layout from '@/components/Layout';
+import Image from "next/image";
 
 export default function HomePage() {
+  // 휴머노이드 이미지 배열
+  const humanoidImages = [
+    "/humanoid1.jpg",
+    "/humanoid2.jpg",
+    "/humanoid3.jpg",
+    "/humanoid4.jpg",
+    "/humanoid5.jpg",
+    "/humanoid6.jpg",
+    "/humanoid7.jpg",
+    "/humanoid8.jpg",
+    "/humanoid9.jpg",
+    "/humanoid10.jpg",
+  ];
+
   return (
     <Layout>
       <main className="flex-grow bg-gradient-to-b from-green-100 to-green-400 py-8">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-8 text-center">Innovative Humanoid Solutions</h1>
-          <h2 className="text-2xl mb-6 text-center">DABINKO&apos;s Cutting-edge Humanoid Technology</h2>
-          
-          {/* User Manual Section */}
+          <header className="flex justify-center mb-12">
+            <div className="relative w-[200px] h-[80px]">
+              <Image
+                src="/dabinko-logo.svg"
+                alt="DABINKO Logo"
+                fill
+                style={{
+                  objectFit: 'contain'
+                }}
+                priority
+              />
+            </div>
+          </header>
+
+          <section className="text-center mb-16">
+            <h1 className="text-4xl font-bold mb-4">Innovative Humanoid Solutions</h1>
+            <p className="text-xl text-gray-700">DABINKO&apos;s Cutting-edge Humanoid Technology</p>
+          </section>
+
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-8 text-center">Humanoid Gallery</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {humanoidImages.map((image, index) => (
+                <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={image}
+                    alt={`Humanoid ${index + 1}`}
+                    fill
+                    style={{
+                      objectFit: 'cover'
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+
           <div className="space-y-8">
             <section>
               <h3 className="text-xl font-bold mb-4">User Manual</h3>
