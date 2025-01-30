@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* Fixed Contact Icons */}
+      {/* Fixed Contact Text Links */}
       <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
         {/* WhatsApp */}
         <a
@@ -42,8 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           rel="noopener noreferrer"
           className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-6 h-6" />
-          <span className="ml-2 text-[#25D366] font-semibold">WhatsApp</span>
+          <span className="text-[#25D366] font-semibold">WhatsApp</span>
         </a>
 
         {/* WeChat */}
@@ -51,8 +50,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           href="#"
           className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/wechat-icon.png" alt="WeChat" className="w-6 h-6" />
-          <span className="ml-2 text-[#07C160] font-semibold">WeChat</span>
+          <span className="text-[#07C160] font-semibold">WeChat</span>
         </a>
 
         {/* Telegram */}
@@ -62,8 +60,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           rel="noopener noreferrer"
           className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/telegram-icon.png" alt="Telegram" className="w-6 h-6" />
-          <span className="ml-2 text-[#0088cc] font-semibold">Telegram</span>
+          <span className="text-[#0088cc] font-semibold">Telegram</span>
         </a>
 
         {/* Email */}
@@ -73,8 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           rel="noopener noreferrer"
           className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/email-icon.png" alt="Email" className="w-6 h-6" />
-          <span className="ml-2 text-[#EA4335] font-semibold">E-mail</span>
+          <span className="text-[#EA4335] font-semibold">E-mail</span>
         </a>
       </div>
 
