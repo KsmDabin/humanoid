@@ -33,14 +33,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* Fixed Contact Text Links */}
-      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
+      {/* Fixed Contact Text Links - 우측 정렬 및 크기 15% 감소 */}
+      <div className="fixed right-1 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
         {/* WhatsApp */}
         <a
           href="https://wa.me/8615161637863"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
+          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
         >
           <span className="text-[#25D366] font-semibold">WhatsApp</span>
         </a>
@@ -48,7 +48,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* WeChat */}
         <a
           href="#"
-          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
+          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
         >
           <span className="text-[#07C160] font-semibold">WeChat</span>
         </a>
@@ -58,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           href="https://t.me/8615161637863"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
+          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
         >
           <span className="text-[#0088cc] font-semibold">Telegram</span>
         </a>
@@ -68,7 +68,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           href="mailto:dabinko@kita.net"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
+          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
         >
           <span className="text-[#EA4335] font-semibold">E-mail</span>
         </a>
