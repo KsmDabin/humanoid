@@ -34,23 +34,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Fixed Contact Icons */}
-      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-4 z-50">
+      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
         {/* WhatsApp */}
         <a
           href="https://wa.me/8615161637863"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 bg-[#25D366] rounded-full hover:opacity-90 transition-opacity"
+          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-7 h-7" />
+          <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-6 h-6" />
+          <span className="ml-2 text-[#25D366] font-semibold">WhatsApp</span>
         </a>
 
         {/* WeChat */}
         <a
           href="#"
-          className="flex items-center justify-center w-12 h-12 bg-[#07C160] rounded-full hover:opacity-90 transition-opacity"
+          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/wechat-icon.png" alt="WeChat" className="w-7 h-7" />
+          <img src="/wechat-icon.png" alt="WeChat" className="w-6 h-6" />
+          <span className="ml-2 text-[#07C160] font-semibold">WeChat</span>
         </a>
 
         {/* Telegram */}
@@ -58,9 +60,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           href="https://t.me/8615161637863"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 bg-[#0088cc] rounded-full hover:opacity-90 transition-opacity"
+          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/telegram-icon.png" alt="Telegram" className="w-7 h-7" />
+          <img src="/telegram-icon.png" alt="Telegram" className="w-6 h-6" />
+          <span className="ml-2 text-[#0088cc] font-semibold">Telegram</span>
         </a>
 
         {/* Email */}
@@ -68,9 +71,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           href="mailto:dabinko@kita.net"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 bg-[#EA4335] rounded-full hover:opacity-90 transition-opacity"
+          className="flex items-center bg-white rounded px-3 py-2 hover:opacity-90 transition-opacity shadow-md"
         >
-          <img src="/email-icon.png" alt="Email" className="w-7 h-7" />
+          <img src="/email-icon.png" alt="Email" className="w-6 h-6" />
+          <span className="ml-2 text-[#EA4335] font-semibold">E-mail</span>
         </a>
       </div>
 
