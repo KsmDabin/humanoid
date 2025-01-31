@@ -19,9 +19,9 @@ export default function SmartWatchPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">2. Key Features of Smartwatch-Based Control</h2>
               <ol className="list-decimal pl-6 space-y-2">
-                <li>Motion Tracking: Smartwatches can estimate human arm movements and postures using built-in motion sensors. This data can be used to control the robot's limbs or guide its actions through gestures.</li>
+                <li>Motion Tracking: Smartwatches can estimate human arm movements and postures using built-in motion sensors. This data can be used to control the robot&apos;s limbs or guide its actions through gestures.</li>
                 <li>Speech Recognition: Voice commands can be processed locally on the smartwatch or sent to cloud-based services for interpretation.</li>
-                <li>Display Interface: The smartwatch screen can show the robot's status, battery levels, or other critical information, providing real-time feedback to the user.</li>
+                <li>Display Interface: The smartwatch screen can show the robot&apos;s status, battery levels, or other critical information, providing real-time feedback to the user.</li>
               </ol>
             </section>
 
@@ -72,7 +72,7 @@ export default function SmartWatchPage() {
 
                 <div>
                   <h3 className="text-xl font-semibold mb-2">3) Hybrid Control Systems</h3>
-                  <p>Combining motion tracking with speech recognition allows users to issue complex commands intuitively (e.g., pointing at an object while saying "pick this up").</p>
+                  <p>Combining motion tracking with speech recognition allows users to issue complex commands intuitively (e.g., pointing at an object while saying &quot;pick this up&quot;).</p>
                 </div>
               </div>
             </section>
