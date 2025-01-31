@@ -7,7 +7,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="bg-black text-white py-4 px-6">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-2">
+          {/* Desktop Navigation (한 줄) */}
+          <div className="hidden md:flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <img
@@ -21,22 +22,51 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               />
             </Link>
 
-            {/* Top Navigation */}
+            {/* All Navigation Items in One Row */}
             <nav className="flex items-center space-x-6">
               <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
               <Link href="/humanoid" className="hover:text-gray-300 transition-colors">Humanoid</Link>
               <Link href="/healthcare" className="hover:text-gray-300 transition-colors">Healthcare</Link>
+              <Link href="/smart-watch" className="hover:text-gray-300 transition-colors">Control with Smart Watch</Link>
+              <Link href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</Link>
+              <Link href="/service" className="hover:text-gray-300 transition-colors">A/S</Link>
               <Link href="/en" className="hover:text-gray-300 transition-colors">English</Link>
             </nav>
           </div>
 
-          {/* Bottom Navigation */}
-          <div className="flex justify-end">
-            <nav className="flex items-center space-x-6">
-              <Link href="/smart-watch" className="hover:text-gray-300 transition-colors">Control with Smart Watch</Link>
-              <Link href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</Link>
-              <Link href="/service" className="hover:text-gray-300 transition-colors">A/S</Link>
-            </nav>
+          {/* Mobile Navigation (두 줄) */}
+          <div className="md:hidden">
+            <div className="flex items-center justify-between mb-2">
+              {/* Logo */}
+              <Link href="/" className="flex items-center">
+                <img
+                  src="/dabinko-logo.jpg"
+                  alt="DABINKO Logo"
+                  style={{
+                    width: '158px',
+                    height: '64px',
+                    objectFit: 'contain'
+                  }}
+                />
+              </Link>
+
+              {/* Top Navigation */}
+              <nav className="flex items-center space-x-6">
+                <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
+                <Link href="/humanoid" className="hover:text-gray-300 transition-colors">Humanoid</Link>
+                <Link href="/healthcare" className="hover:text-gray-300 transition-colors">Healthcare</Link>
+                <Link href="/en" className="hover:text-gray-300 transition-colors">English</Link>
+              </nav>
+            </div>
+
+            {/* Bottom Navigation */}
+            <div className="flex justify-end">
+              <nav className="flex items-center space-x-6">
+                <Link href="/smart-watch" className="hover:text-gray-300 transition-colors">Control with Smart Watch</Link>
+                <Link href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</Link>
+                <Link href="/service" className="hover:text-gray-300 transition-colors">A/S</Link>
+              </nav>
+            </div>
           </div>
         </div>
       </header>
