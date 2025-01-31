@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
             <Link href="/humanoid" className="hover:text-gray-300 transition-colors">Humanoid</Link>
             <Link href="/healthcare" className="hover:text-gray-300 transition-colors">Healthcare</Link>
-            <Link href="/mobile-control" className="hover:text-gray-300 transition-colors">Control with Mobile</Link>
+            <Link href="/smart-watch" className="hover:text-gray-300 transition-colors">Control with Smart Watch</Link>
             <Link href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</Link>
             <Link href="/service" className="hover:text-gray-300 transition-colors">A/S</Link>
             <Link href="/en" className="hover:text-gray-300 transition-colors">English</Link>
