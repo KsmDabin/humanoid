@@ -1,46 +1,35 @@
 import { NextResponse } from 'next/server';
-import * as XLSX from 'xlsx';
-import fs from 'fs';
-import path from 'path';
+import clientPromise from '@/lib/mongodb';
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const filePath = path.join('D:', 'Cursor', 'humanoid', 'Service Request Form.xlsx');
+    
+    // MongoDB 연결
+    const client = await clientPromise;
+    const db = client.db('humanoid-service');
+    const collection = db.collection('service-requests');
 
-    // Excel 파일 읽기
-    let workbook;
-    if (fs.existsSync(filePath)) {
-      workbook = XLSX.readFile(filePath);
-    } else {
-      workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet([]), 'Sheet1');
-    }
+    // 타임스탬프 추가
+    const serviceRequest = {
+      ...data,
+      createdAt: new Date(),
+      status: 'pending' // 초기 상태
+    };
 
-    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    // MongoDB에 데이터 저장
+    const result = await collection.insertOne(serviceRequest);
 
-    // 마지막 행 번호 찾기
-    const range = XLSX.utils.decode_range(worksheet['!ref'] || 'A1:F1');
-    const lastRow = range.e.r + 2;  // 새로운 데이터를 위한 다음 행
+    return NextResponse.json({ 
+      success: true,
+      message: 'Service request saved successfully',
+      requestId: result.insertedId
+    });
 
-    // 새로운 데이터 추가
-    XLSX.utils.sheet_add_aoa(worksheet, [[
-      '',  // A열은 비워둠
-      data.customerName,  // B열
-      data.phoneNumber,   // C열
-      data.address,       // D열
-      data.additionalSymptoms, // E열
-      data.expectedVisitDate   // F열
-    ]], { origin: lastRow });
-
-    // 파일 저장
-    XLSX.writeFile(workbook, filePath);
-
-    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error saving to Excel:', error);
+    console.error('Error saving service request:', error);
     return NextResponse.json(
-      { success: false, error: 'Failed to save data' }, 
+      { success: false, error: 'Failed to save request' }, 
       { status: 500 }
     );
   }
