@@ -6,7 +6,7 @@ export default function ServicePage() {
     <Layout>
       <main className="flex-grow bg-gradient-to-b from-green-100 to-green-400 py-8">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="bg-white rounded-lg shadow-lg p-8">
+          <div className="rounded-lg shadow-lg p-8">
             <h1 className="text-3xl font-bold mb-6 text-center">After Service</h1>
             
             <div className="space-y-6 text-gray-800">
