@@ -1,10 +1,29 @@
 "use client";
 import Layout from '@/components/Layout';
+import { useState } from 'react';
 
 export default function ServicePage() {
+  const [showForm, setShowForm] = useState(false);
+  const [selectedSymptom, setSelectedSymptom] = useState('');
+
+  const handleSymptomClick = (symptom: string) => {
+    setSelectedSymptom(symptom);
+    setShowForm(true);
+  };
+
+  // 증상 텍스트에 onClick 이벤트 추가를 위한 수정된 리스트 아이템 컴포넌트
+  const SymptomItem = ({ text }: { text: string }) => (
+    <li 
+      onClick={() => handleSymptomClick(text)}
+      className="cursor-pointer hover:text-blue-600 transition-colors"
+    >
+      {text}
+    </li>
+  );
+
   return (
     <Layout>
-      <main className="flex-grow bg-gradient-to-b from-green-100 to-green-400 py-8">
+      <main className="flex-grow bg-gradient-to-b from-green-100 to-green-400 py-8 relative">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="rounded-lg shadow-lg p-8">
             <h1 className="text-3xl font-bold mb-6 text-center">After Service</h1>
@@ -34,10 +53,10 @@ export default function ServicePage() {
                     <div>
                       <p className="font-semibold">3) Symptoms:</p>
                       <ul className="ml-4 list-none">
-                        <li>(1) Limited or irregular joint movement</li>
-                        <li>(2) Unusual noise generation</li>
-                        <li>(3) Increased vibration</li>
-                        <li>(4) Reduced accuracy</li>
+                        <SymptomItem text="(1) Limited or irregular joint movement" />
+                        <SymptomItem text="(2) Unusual noise generation" />
+                        <SymptomItem text="(3) Increased vibration" />
+                        <SymptomItem text="(4) Reduced accuracy" />
                       </ul>
                     </div>
                     <p className="mt-4">
@@ -65,10 +84,10 @@ export default function ServicePage() {
                     <div>
                       <p className="font-semibold">3) Symptoms:</p>
                       <ul className="ml-4 list-none">
-                        <li>(1) Inaccurate environmental perception</li>
-                        <li>(2) Unstable balance maintenance</li>
-                        <li>(3) Touch response errors</li>
-                        <li>(4) Image processing issues</li>
+                        <SymptomItem text="(1) Inaccurate environmental perception" />
+                        <SymptomItem text="(2) Unstable balance maintenance" />
+                        <SymptomItem text="(3) Touch response errors" />
+                        <SymptomItem text="(4) Image processing issues" />
                       </ul>
                     </div>
                     <p className="mt-4">
@@ -96,10 +115,10 @@ export default function ServicePage() {
                     <div>
                       <p className="font-semibold">3) Symptoms:</p>
                       <ul className="ml-4 list-none">
-                        <li>(1) System instability or freezing</li>
-                        <li>(2) Abnormal behavior patterns</li>
-                        <li>(3) Reduced response time</li>
-                        <li>(4) Unexpected shutdowns</li>
+                        <SymptomItem text="(1) System instability or freezing" />
+                        <SymptomItem text="(2) Abnormal behavior patterns" />
+                        <SymptomItem text="(3) Reduced response time" />
+                        <SymptomItem text="(4) Unexpected shutdowns" />
                       </ul>
                     </div>
                     <p className="mt-4">
@@ -127,10 +146,10 @@ export default function ServicePage() {
                     <div>
                       <p className="font-semibold">3) Symptoms:</p>
                       <ul className="ml-4 list-none">
-                        <li>(1) Reduced operating time</li>
-                        <li>(2) Sudden power cutoffs</li>
-                        <li>(3) Irregular power supply</li>
-                        <li>(4) Overheating</li>
+                        <SymptomItem text="(1) Reduced operating time" />
+                        <SymptomItem text="(2) Sudden power cutoffs" />
+                        <SymptomItem text="(3) Irregular power supply" />
+                        <SymptomItem text="(4) Overheating" />
                       </ul>
                     </div>
                     <p className="mt-4">
@@ -158,10 +177,10 @@ export default function ServicePage() {
                     <div>
                       <p className="font-semibold">3) Symptoms:</p>
                       <ul className="ml-4 list-none">
-                        <li>(1) Structural instability</li>
-                        <li>(2) Cracks or deformations</li>
-                        <li>(3) Abnormal vibrations</li>
-                        <li>(4) Interference between components</li>
+                        <SymptomItem text="(1) Structural instability" />
+                        <SymptomItem text="(2) Cracks or deformations" />
+                        <SymptomItem text="(3) Abnormal vibrations" />
+                        <SymptomItem text="(4) Interference between components" />
                       </ul>
                     </div>
                     <p className="mt-4">
@@ -176,6 +195,74 @@ export default function ServicePage() {
               </p>
             </div>
           </div>
+
+          {/* 입력 폼 모달 */}
+          {showForm && (
+            <div className="fixed bottom-4 right-4 bg-white p-6 rounded-lg shadow-xl w-96">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-bold">Service Request Form</h3>
+                <button 
+                  onClick={() => setShowForm(false)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <p className="font-bold mb-2">Selected Symptom:</p>
+                  <p className="text-gray-600">{selectedSymptom}</p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Customer Name</label>
+                  <input
+                    type="text"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+                  <input
+                    type="tel"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Address</label>
+                  <input
+                    type="text"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Additional Symptoms</label>
+                  <textarea
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    rows={3}
+                  ></textarea>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Expected Visit Date</label>
+                  <input
+                    type="date"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  />
+                </div>
+
+                <button
+                  className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+                >
+                  Submit Request
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </main>
     </Layout>
