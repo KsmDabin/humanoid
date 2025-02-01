@@ -11,7 +11,7 @@ export default function ServicePage() {
             
             <div className="space-y-6 text-gray-800">
               <p className="text-lg">
-                Humanoid robots are complex mechanical systems that can experience failures in various parts. Here's a detailed explanation of the areas prone to malfunction, associated component names, causes of failure, and symptoms.
+                Humanoid robots are complex mechanical systems that can experience failures in various parts. Here&apos;s a detailed explanation of the areas prone to malfunction, associated component names, causes of failure, and symptoms.
               </p>
 
               <div className="space-y-8">
@@ -41,7 +41,7 @@ export default function ServicePage() {
                       </ul>
                     </div>
                     <p className="mt-4">
-                      Joints play a crucial role in the humanoid's movements, particularly distributed in elbows, wrists, hips, knees, and ankles. Failures in these areas can severely impact the robot's overall functionality.
+                      Joints play a crucial role in the humanoid&apos;s movements, particularly distributed in elbows, wrists, hips, knees, and ankles. Failures in these areas can severely impact the robot&apos;s overall functionality.
                     </p>
                   </div>
                 </section>
@@ -72,7 +72,7 @@ export default function ServicePage() {
                       </ul>
                     </div>
                     <p className="mt-4">
-                      Sensors are essential for the robot to detect its surroundings and understand its position and state. Sensor system failures directly affect the robot's safe operation and efficient task performance.
+                      Sensors are essential for the robot to detect its surroundings and understand its position and state. Sensor system failures directly affect the robot&apos;s safe operation and efficient task performance.
                     </p>
                   </div>
                 </section>
@@ -134,7 +134,7 @@ export default function ServicePage() {
                       </ul>
                     </div>
                     <p className="mt-4">
-                      The stability of the power system is crucial for the robot's continuous operation. Battery life, in particular, can limit the humanoid robot's ability to perform tasks continuously.
+                      The stability of the power system is crucial for the robot&apos;s continuous operation. Battery life, in particular, can limit the humanoid robot&apos;s ability to perform tasks continuously.
                     </p>
                   </div>
                 </section>
@@ -172,7 +172,7 @@ export default function ServicePage() {
               </div>
 
               <p className="text-lg mt-8">
-                Failures in humanoid robots can result in various consequences, from simple malfunctions to serious safety issues. Therefore, regular maintenance, proper use, and implementation of safety systems are essential. Additionally, when designing robots, it's important to consider dynamic loads in component design, which can improve the robot's stability and durability.
+                Failures in humanoid robots can result in various consequences, from simple malfunctions to serious safety issues. Therefore, regular maintenance, proper use, and implementation of safety systems are essential. Additionally, when designing robots, it&apos;s important to consider dynamic loads in component design, which can improve the robot&apos;s stability and durability.
               </p>
             </div>
           </div>
