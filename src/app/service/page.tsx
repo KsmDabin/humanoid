@@ -103,7 +103,7 @@ export default function ServicePage() {
                       </ul>
                     </div>
                     <p className="mt-4">
-                      The control system acts as the robot's 'brain', coordinating all movements and actions. Failure in this system can lead to dysfunction of the entire robot.
+                      The control system acts as the robot&apos;s &quot;brain&quot;, coordinating all movements and actions. Failure in this system can lead to dysfunction of the entire robot.
                     </p>
                   </div>
                 </section>
