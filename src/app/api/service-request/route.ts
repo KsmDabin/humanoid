@@ -1,26 +1,21 @@
 import { NextResponse } from 'next/server';
-import { appendToExcel } from '@/lib/excel-service';
-import { getAccessToken } from '@/lib/auth-service';
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
     
-    // 액세스 토큰 획득
-    const accessToken = await getAccessToken();
-    
-    // Excel 파일에 데이터 추가
-    await appendToExcel(data, accessToken);
+    // 요청 데이터 로깅
+    console.log('Service request received:', data);
 
     return NextResponse.json({ 
       success: true,
-      message: 'Service request saved to Excel file'
+      message: 'Service request received'
     });
 
   } catch (error) {
-    console.error('Error saving to Excel:', error);
+    console.error('Error:', error);
     return NextResponse.json(
-      { success: false, error: 'Failed to save request' }, 
+      { success: false, message: 'Failed to process request' },
       { status: 500 }
     );
   }
