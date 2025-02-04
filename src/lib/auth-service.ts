@@ -1,12 +1,18 @@
-import { NextResponse } from 'next/server';
+import { ClientSecretCredential } from "@azure/identity";
 
 // 임시 인증 함수
 export async function getAccessToken(): Promise<string> {
   try {
-    // 실제 Azure AD 인증 로직은 나중에 구현
-    return "temporary_token";
+    const credential = new ClientSecretCredential(
+      process.env.AZURE_TENANT_ID!,
+      process.env.AZURE_CLIENT_ID!,
+      process.env.AZURE_CLIENT_SECRET!
+    );
+
+    const token = await credential.getToken("https://graph.microsoft.com/.default");
+    return token.token;
   } catch (error) {
-    console.error('Authentication error:', error);
+    console.error('Failed to get access token:', error);
     throw error;
   }
 } 

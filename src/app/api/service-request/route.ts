@@ -1,22 +1,31 @@
 import { NextResponse } from 'next/server';
+import { appendToExcel } from '@/lib/excel-service';
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    
-    // 요청 데이터 로깅
-    console.log('Service request received:', data);
+    console.log('Received data:', data);
 
-    return NextResponse.json({ 
-      success: true,
-      message: 'Service request received'
-    });
+    try {
+      await appendToExcel(data);
+      
+      return NextResponse.json({ 
+        success: true,
+        message: 'Service request saved successfully'
+      });
+    } catch (error) {
+      console.error('Failed to save to Excel:', error);
+      return NextResponse.json(
+        { success: false, message: 'Failed to save request' },
+        { status: 500 }
+      );
+    }
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error processing request:', error);
     return NextResponse.json(
-      { success: false, message: 'Failed to process request' },
-      { status: 500 }
+      { success: false, message: 'Invalid request data' },
+      { status: 400 }
     );
   }
 }

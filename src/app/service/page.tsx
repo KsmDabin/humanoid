@@ -1,6 +1,7 @@
 "use client";
 import Layout from '@/components/Layout';
 import { useState } from 'react';
+import './styles.css';
 
 export default function ServicePage() {
   const [showForm, setShowForm] = useState(false);
@@ -28,6 +29,8 @@ export default function ServicePage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Submitting form data...'); // 디버깅 로그
+
     try {
       const response = await fetch('/api/service-request', {
         method: 'POST',
@@ -40,9 +43,11 @@ export default function ServicePage() {
         }),
       });
 
+      const data = await response.json();
+      console.log('Response:', data); // 디버깅 로그
+
       if (response.ok) {
         alert('Service request submitted successfully!');
-        setShowForm(false);
         setFormData({
           customerName: '',
           phoneNumber: '',
@@ -50,16 +55,18 @@ export default function ServicePage() {
           additionalSymptoms: '',
           expectedVisitDate: ''
         });
+        setSelectedSymptom('');
+        setShowForm(false);
       } else {
-        throw new Error('Failed to submit request');
+        throw new Error(data.message || 'Failed to submit request');
       }
     } catch (error) {
-      alert('Failed to submit service request. Please try again.');
       console.error('Error:', error);
+      alert('Failed to submit service request. Please try again.');
     }
   };
 
-  // 증상 텍스트에 onClick 이벤트 추가를 위한 수정된 리스트 아이템 컴포넌트
+  // 증상 텍스트에 onClick 이벤트 추가를 위한 컴포넌트
   const SymptomItem = ({ text }: { text: string }) => (
     <li 
       onClick={() => handleSymptomClick(text)}
@@ -247,7 +254,7 @@ export default function ServicePage() {
           {/* 입력 폼 모달 */}
           {showForm && (
             <div className="fixed bottom-4 right-4 bg-white p-6 rounded-lg shadow-xl w-96 z-50">
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="service-form">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-bold">Service Request Form</h3>
                   <button 
@@ -324,9 +331,14 @@ export default function ServicePage() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+                <button 
+                  type="submit" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log('Submit button clicked');
+                    handleSubmit(e);
+                  }}
+                  className="submit-button"
                 >
                   Submit Request
                 </button>

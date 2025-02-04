@@ -1,4 +1,5 @@
-import { getGraphClient } from './graph-client';
+import { Client } from "@microsoft/microsoft-graph-client";
+import { getAccessToken } from "./auth-service";
 
 interface ServiceRequest {
   customerName: string;
@@ -11,11 +12,43 @@ interface ServiceRequest {
 
 export async function appendToExcel(data: ServiceRequest): Promise<boolean> {
   try {
-    // 실제 Excel 처리 로직은 나중에 구현
-    console.log('Service request data:', data);
+    const accessToken = await getAccessToken();
+    console.log('Got access token'); // 디버깅 로그
+    
+    const client = Client.init({
+      authProvider: (done) => {
+        done(null, accessToken);
+      },
+    });
+
+    console.log('Attempting to append data:', data); // 디버깅 로그
+
+    // SharePoint 사이트 경로 사용
+    const driveItem = await client.api(`/me/drive/items/${process.env.EXCEL_FILE_ID}`).get();
+    console.log('Drive item:', driveItem); // 디버깅 로그
+
+    const endpoint = `/me/drive/items/${process.env.EXCEL_FILE_ID}/workbook/tables/Table1/rows`;
+    
+    const response = await client.api(endpoint).post({
+      values: [[
+        data.customerName || '',
+        data.phoneNumber || '',
+        data.address || '',
+        data.additionalSymptoms || '',
+        data.expectedVisitDate || '',
+        data.selectedSymptom || '',
+        new Date().toISOString()
+      ]]
+    });
+
+    console.log('Excel append response:', response); // 디버깅 로그
     return true;
   } catch (error) {
-    console.error('Excel processing error:', error);
+    console.error('Excel append error:', error);
+    console.error('Error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined
+    });
     throw error;
   }
 } 
