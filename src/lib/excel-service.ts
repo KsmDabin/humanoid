@@ -16,7 +16,7 @@ export async function appendToExcel(data: ServiceRequest): Promise<boolean> {
     console.log('Got access token'); // 디버깅 로그
     
     const client = Client.init({
-      authProvider: (done) => {
+      authProvider: (done: (error: any, token?: string) => void) => {
         done(null, accessToken);
       },
     });
@@ -43,7 +43,7 @@ export async function appendToExcel(data: ServiceRequest): Promise<boolean> {
 
     console.log('Excel append response:', response); // 디버깅 로그
     return true;
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Excel append error:', error);
     console.error('Error details:', {
       message: error instanceof Error ? error.message : 'Unknown error',
