@@ -10,9 +10,10 @@ export async function getAccessToken(): Promise<string> {
     );
 
     const token = await credential.getToken("https://graph.microsoft.com/.default");
+    console.log('Token obtained successfully'); // 디버깅 로그
     return token.token;
   } catch (error) {
-    console.error('Failed to get access token:', error);
+    console.error('Error getting access token:', error);
     throw error;
   }
 } 

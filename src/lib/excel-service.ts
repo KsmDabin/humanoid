@@ -16,19 +16,17 @@ export async function appendToExcel(data: ServiceRequest): Promise<boolean> {
     console.log('Got access token'); // 디버깅 로그
     
     const client = Client.init({
-      authProvider: (done: (error: any, token?: string) => void) => {
+      authProvider: (done) => {
         done(null, accessToken);
       },
     });
 
-    console.log('Attempting to append data:', data); // 디버깅 로그
-
     // SharePoint 사이트 경로 사용
-    const driveItem = await client.api(`/me/drive/items/${process.env.EXCEL_FILE_ID}`).get();
-    console.log('Drive item:', driveItem); // 디버깅 로그
-
-    const endpoint = `/me/drive/items/${process.env.EXCEL_FILE_ID}/workbook/tables/Table1/rows`;
+    const endpoint = `/sites/dabinko.sharepoint.com:/personal/wongookim_dabinko_onmicrosoft_com:/drive/items/${process.env.EXCEL_FILE_ID}/workbook/tables/Table1/rows/add`;
     
+    console.log('Using endpoint:', endpoint); // 디버깅 로그
+    console.log('Sending data:', data); // 디버깅 로그
+
     const response = await client.api(endpoint).post({
       values: [[
         data.customerName || '',
@@ -43,12 +41,14 @@ export async function appendToExcel(data: ServiceRequest): Promise<boolean> {
 
     console.log('Excel append response:', response); // 디버깅 로그
     return true;
-  } catch (error: unknown) {
+  } catch (error) {
     console.error('Excel append error:', error);
-    console.error('Error details:', {
-      message: error instanceof Error ? error.message : 'Unknown error',
-      stack: error instanceof Error ? error.stack : undefined
-    });
+    if (error instanceof Error) {
+      console.error('Error details:', {
+        message: error.message,
+        stack: error.stack
+      });
+    }
     throw error;
   }
 } 
