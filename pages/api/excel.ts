@@ -1,20 +1,29 @@
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+import { NextApiRequest, NextApiResponse } from 'next';
+import { getAuthenticatedClient } from '../../utils/sharepoint';
+
+interface RequestData {
+  customerName: string;
+  phoneNumber: string;
+  address: string;
+  additionalSymptoms: string;
+  expectedDate: string;
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
+
   try {
-    const data = req.body;
-    
-    // 디버깅을 위한 로그 추가
-    console.log('Received data:', data);
-    
+    const data = req.body as RequestData;
     const client = await getAuthenticatedClient();
     
-    // SharePoint 사이트와 파일 경로 확인
     const sitePath = process.env.SHAREPOINT_SITE_PATH;
     const filePath = process.env.EXCEL_FILE_PATH;
-    
-    console.log('Site Path:', sitePath);
-    console.log('File Path:', filePath);
-    
-    // Excel 파일 업데이트
+
     await client.api(`${sitePath}/drive/root:/${filePath}:/workbook/tables/Table1/rows/add`)
       .post({
         values: [[
