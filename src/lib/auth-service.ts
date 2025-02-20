@@ -1,4 +1,5 @@
 import { ClientSecretCredential } from "@azure/identity";
+import { User } from './types';
 
 // 임시 인증 함수
 export async function getAccessToken(): Promise<string> {
@@ -16,4 +17,16 @@ export async function getAccessToken(): Promise<string> {
     console.error('Error getting access token:', error);
     throw error;
   }
-} 
+}
+
+export const AuthService = {
+  // 현재 사용자 정보 가져오기
+  getCurrentUser: (): User | null => {
+    return null;
+  },
+
+  // 로그인 상태 확인
+  isAuthenticated: (): boolean => {
+    return false;
+  }
+}; 

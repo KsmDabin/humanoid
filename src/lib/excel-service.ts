@@ -1,18 +1,34 @@
-import { Client } from "@microsoft/microsoft-graph-client";
-import { getAccessToken } from "./auth-service";
+import { ServiceRequest } from './types';
 
-interface ServiceRequest {
-  customerName: string;
-  phoneNumber: string;
-  address: string;
-  additionalSymptoms: string;
-  expectedVisitDate: string;
-  selectedSymptom: string;
-}
+// 메모리에 데이터 저장
+const requests: ServiceRequest[] = [];
+
+export const ExcelService = {
+  // 새 요청 추가
+  addRequest: (data: Omit<ServiceRequest, 'id' | 'createdAt'>) => {
+    const newRequest: ServiceRequest = {
+      ...data,
+      id: Date.now().toString(),
+      createdAt: new Date()
+    };
+    requests.push(newRequest);
+    return newRequest;
+  },
+
+  // 모든 요청 조회
+  getAllRequests: () => {
+    return [...requests];
+  },
+
+  // ID로 요청 조회
+  getRequestById: (id: string) => {
+    return requests.find(request => request.id === id);
+  }
+};
 
 export async function appendToExcel(data: ServiceRequest): Promise<boolean> {
   try {
-    const accessToken = await getAccessToken();
+    const accessToken = await getToken();
     console.log('Got access token'); // 디버깅 로그
     
     const client = Client.init({
@@ -32,10 +48,9 @@ export async function appendToExcel(data: ServiceRequest): Promise<boolean> {
         data.customerName || '',
         data.phoneNumber || '',
         data.address || '',
-        data.additionalSymptoms || '',
-        data.expectedVisitDate || '',
-        data.selectedSymptom || '',
-        new Date().toISOString()
+        data.symptoms || '',
+        data.expectedDate || '',
+        data.createdAt.toISOString()
       ]]
     });
 
