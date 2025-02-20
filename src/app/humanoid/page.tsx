@@ -1,4 +1,6 @@
 "use client";
+import React from 'react';
+import Image from 'next/image';
 import Layout from '@/components/Layout';
 
 export default function HumanoidPage() {
@@ -26,10 +28,13 @@ export default function HumanoidPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {images.map((src, index) => (
               <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <img
+                <Image
                   src={src}
                   alt={`Humanoid ${index + 1}`}
                   className="w-full h-full object-cover"
+                  width={256}
+                  height={192}
+                  priority
                 />
               </div>
             ))}
