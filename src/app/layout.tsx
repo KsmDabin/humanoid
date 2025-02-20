@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Humanoid Service",
-  description: "Humanoid Service Request System",
+  title: "Service Request System",
+  description: "Service Request System for DABINKO",
 };
 
 export default function RootLayout({
