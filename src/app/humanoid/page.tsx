@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
-import Image from 'next/image';
 import Layout from '../../components/Layout';
+import Image from 'next/image';
 
 export default function HumanoidPage() {
   return (
@@ -12,8 +12,8 @@ export default function HumanoidPage() {
           <div>
             <Image 
               src="/images/humanoid-robot.jpg" 
-              alt="Humanoid Robot" 
-              width={600} 
+              alt="Humanoid Robot"
+              width={600}
               height={400}
               className="rounded-lg shadow-lg"
               priority
