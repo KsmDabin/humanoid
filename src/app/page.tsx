@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, FormEvent } from 'react';
 import Layout from '../components/Layout';
-import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   const [customerName, setCustomerName] = useState<string>('');
@@ -46,20 +44,6 @@ export default function Home() {
       alert('Failed to submit service request. Please try again.');
     }
   };
-
-  // 휴머노이드 이미지 배열
-  const humanoidImages = [
-    "/humanoid1.jpg",
-    "/humanoid2.jpg",
-    "/humanoid3.jpg",
-    "/humanoid4.jpg",
-    "/humanoid5.jpg",
-    "/humanoid6.jpg",
-    "/humanoid7.jpg",
-    "/humanoid8.jpg",
-    "/humanoid9.jpg",
-    "/humanoid10.jpg",
-  ];
 
   return (
     <Layout>
