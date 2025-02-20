@@ -6,6 +6,11 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const metadata = {
+  title: 'DABINKO Service System',
+  description: 'Service Request System for DABINKO',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -26,7 +31,7 @@ export default function RootLayout({
                 <Link href="/healthcare" className="hover:text-gray-300">Healthcare</Link>
                 <Link href="/smart-watch" className="hover:text-gray-300">Smart Watch</Link>
                 <Link href="/ai-pg" className="hover:text-gray-300">AI P/G</Link>
-                <Link href="/as" className="hover:text-gray-300">A/S</Link>
+                <Link href="/service" className="hover:text-gray-300">Service</Link>
                 <Link href="/en" className="hover:text-gray-300">English</Link>
               </div>
             </div>

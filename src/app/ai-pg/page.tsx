@@ -3,11 +3,11 @@ import React from 'react';
 
 export default function AIProgrammingPage() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="container mx-auto px-4">
       <h1 className="text-3xl font-bold mb-6">AI Programming</h1>
-      <p className="mb-4">
-        Advanced AI solutions for your needs...
-      </p>
+      <div className="prose max-w-none">
+        <p>Learn about our AI programming capabilities.</p>
+      </div>
     </div>
   );
 } 

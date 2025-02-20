@@ -3,11 +3,11 @@ import React from 'react';
 
 export default function HealthcarePage() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="container mx-auto px-4">
       <h1 className="text-3xl font-bold mb-6">Healthcare Solutions</h1>
-      <p className="mb-4">
-        Discover our innovative healthcare technologies...
-      </p>
+      <div className="prose max-w-none">
+        <p>Explore our innovative healthcare technologies.</p>
+      </div>
     </div>
   );
 }
