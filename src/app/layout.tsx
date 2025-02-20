@@ -1,6 +1,6 @@
 'use client';
 import './globals.css';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -24,14 +24,14 @@ export default function RootLayout({
                   DABINKO
                 </Link>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Link href="/" className="nav-link">Home</Link>
-                  <Link href="/about" className="nav-link">About</Link>
-                  <Link href="/humanoid" className="nav-link">Humanoid</Link>
-                  <Link href="/healthcare" className="nav-link">Healthcare</Link>
-                  <Link href="/smart-watch" className="nav-link">Smart Watch</Link>
-                  <Link href="/ai-pg" className="nav-link">AI P/G</Link>
-                  <Link href="/service" className="nav-link">Service</Link>
-                  <Link href="/en" className="nav-link">English</Link>
+                  <Link href="/" className="px-3 py-2 text-gray-700 hover:text-blue-600">Home</Link>
+                  <Link href="/about" className="px-3 py-2 text-gray-700 hover:text-blue-600">About</Link>
+                  <Link href="/humanoid" className="px-3 py-2 text-gray-700 hover:text-blue-600">Humanoid</Link>
+                  <Link href="/healthcare" className="px-3 py-2 text-gray-700 hover:text-blue-600">Healthcare</Link>
+                  <Link href="/smart-watch" className="px-3 py-2 text-gray-700 hover:text-blue-600">Smart Watch</Link>
+                  <Link href="/ai-pg" className="px-3 py-2 text-gray-700 hover:text-blue-600">AI P/G</Link>
+                  <Link href="/service" className="px-3 py-2 text-gray-700 hover:text-blue-600">Service</Link>
+                  <Link href="/en" className="px-3 py-2 text-gray-700 hover:text-blue-600">English</Link>
                 </div>
               </div>
             </nav>
@@ -41,7 +41,7 @@ export default function RootLayout({
             {children}
           </main>
 
-          <footer className="bg-gray-100 mt-auto">
+          <footer className="bg-gray-100">
             <div className="container mx-auto px-4 py-6">
               <p className="text-center text-gray-600">
                 © 2025 Service Request System. All rights reserved.
