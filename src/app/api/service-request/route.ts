@@ -1,23 +1,59 @@
 import { NextResponse } from 'next/server';
 
+// 메모리에 데이터 저장
+const serviceRequests: any[] = [];
+
 // Excel 서비스 사용하지 않음
 export async function POST(request: Request) {
   try {
     const data = await request.json();
     
-    // 데이터 로깅만 수행
-    console.log('Received service request:', data);
+    // 새 서비스 요청 생성
+    const newRequest = {
+      id: Date.now().toString(),
+      customerName: data.customerName,
+      phoneNumber: data.phoneNumber,
+      address: data.address,
+      symptoms: data.selectedSymptom,
+      expectedDate: data.expectedDate,
+      createdAt: new Date()
+    };
+
+    // 메모리에 저장
+    serviceRequests.push(newRequest);
 
     // 성공 응답 반환
     return NextResponse.json({ 
-      success: true,
-      message: 'Service request received successfully'
+      success: true, 
+      data: newRequest,
+      message: 'Service request submitted successfully'
     });
 
   } catch (error) {
     console.error('Error processing request:', error);
     return NextResponse.json(
-      { error: 'Failed to process request' },
+      { 
+        success: false, 
+        error: 'Failed to process service request' 
+      },
+      { status: 500 }
+    );
+  }
+}
+
+// GET 요청 처리 (옵션)
+export async function GET() {
+  try {
+    return NextResponse.json({ 
+      success: true, 
+      data: serviceRequests 
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { 
+        success: false, 
+        error: 'Failed to fetch service requests' 
+      },
       { status: 500 }
     );
   }
