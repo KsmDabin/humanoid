@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -10,117 +10,88 @@ export default function Home() {
     expectedDate: ''
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/service-request', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Service request submitted successfully!');
-        setFormData({
-          customerName: '',
-          phoneNumber: '',
-          address: '',
-          symptoms: '',
-          expectedDate: ''
-        });
-      } else {
-        throw new Error('Failed to submit request');
-      }
-    } catch (error) {
-      alert('Error submitting request. Please try again.');
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    console.log('Form submitted:', formData);
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-8">Service Request System</h1>
+    <div className="max-w-2xl mx-auto">
+      <h1 className="text-3xl font-bold mb-8">Service Request System</h1>
       
-      <div className="bg-white p-8 rounded-lg shadow-lg">
+      <div className="bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-bold mb-6">Service Request Form</h2>
         
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-700 mb-2">Customer Name:</label>
+            <label htmlFor="customerName" className="block mb-2">Customer Name:</label>
             <input
               type="text"
-              name="customerName"
+              id="customerName"
               value={formData.customerName}
-              onChange={handleChange}
-              className="form-input"
+              onChange={(e) => setFormData({...formData, customerName: e.target.value})}
+              className="w-full p-2 border rounded"
               required
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 mb-2">Phone Number:</label>
+            <label htmlFor="phoneNumber" className="block mb-2">Phone Number:</label>
             <input
               type="tel"
-              name="phoneNumber"
+              id="phoneNumber"
               value={formData.phoneNumber}
-              onChange={handleChange}
-              className="form-input"
+              onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
+              className="w-full p-2 border rounded"
               required
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 mb-2">Address:</label>
+            <label htmlFor="address" className="block mb-2">Address:</label>
             <textarea
-              name="address"
+              id="address"
               value={formData.address}
-              onChange={handleChange}
-              className="form-input"
+              onChange={(e) => setFormData({...formData, address: e.target.value})}
+              className="w-full p-2 border rounded"
               rows={3}
               required
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 mb-2">Symptoms:</label>
+            <label htmlFor="symptoms" className="block mb-2">Symptoms:</label>
             <select
-              name="symptoms"
+              id="symptoms"
               value={formData.symptoms}
-              onChange={handleChange}
-              className="form-input"
+              onChange={(e) => setFormData({...formData, symptoms: e.target.value})}
+              className="w-full p-2 border rounded"
               required
             >
               <option value="">Select a symptom</option>
               <option value="not_working">Not Working</option>
-              <option value="slow_performance">Slow Performance</option>
-              <option value="error_message">Error Message</option>
-              <option value="physical_damage">Physical Damage</option>
-              <option value="other">Other</option>
+              <option value="slow">Slow Performance</option>
+              <option value="error">Error Message</option>
+              <option value="damage">Physical Damage</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-gray-700 mb-2">Expected Date:</label>
+            <label htmlFor="expectedDate" className="block mb-2">Expected Date:</label>
             <input
               type="date"
-              name="expectedDate"
+              id="expectedDate"
               value={formData.expectedDate}
-              onChange={handleChange}
-              className="form-input"
+              onChange={(e) => setFormData({...formData, expectedDate: e.target.value})}
+              className="w-full p-2 border rounded"
               required
             />
           </div>
 
-          <button type="submit" className="btn btn-primary w-full">
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          >
             Submit Request
           </button>
         </form>
