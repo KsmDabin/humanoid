@@ -1,141 +1,33 @@
 "use client";
+import React from 'react';
 import Link from 'next/link';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="bg-black text-white py-4 px-6">
-        <div className="container mx-auto">
-          {/* Desktop Navigation (한 줄) */}
-          <div className="hidden md:flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <img
-                src="/dabinko-logo.jpg"
-                alt="DABINKO Logo"
-                style={{
-                  width: '158px',
-                  height: '64px',
-                  objectFit: 'contain'
-                }}
-              />
-            </Link>
-
-            {/* All Navigation Items in One Row */}
-            <nav className="flex items-center space-x-6">
-              <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
-              <Link href="/humanoid" className="hover:text-gray-300 transition-colors">Humanoid</Link>
-              <Link href="/healthcare" className="hover:text-gray-300 transition-colors">Healthcare</Link>
-              <Link href="/smart-watch" className="hover:text-gray-300 transition-colors">Control with Smart Watch</Link>
-              <Link href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</Link>
-              <Link href="/service" className="hover:text-gray-300 transition-colors">A/S</Link>
-              <Link href="/en" className="hover:text-gray-300 transition-colors">English</Link>
-            </nav>
+    <div className="flex flex-col min-h-screen">
+      <header className="bg-black py-1.5 w-full fixed top-0 z-50">
+        <nav className="container mx-auto px-4 flex items-center">
+          <img src="/dabinko-logo.png" alt="DABINKO" className="h-8" />
+          <div className="ml-auto space-x-6">
+            <a href="/about" className="text-white">About</a>
+            <a href="/humanoid" className="text-white">Humanoid</a>
+            <a href="/healthcare" className="text-white">Healthcare</a>
+            <a href="/smart-watch" className="text-white">Control with Smart Watch</a>
+            <a href="/ai-pg" className="text-white">AI P/G</a>
+            <a href="/as" className="text-white">A/S</a>
+            <a href="/en" className="text-white">English</a>
           </div>
-
-          {/* Mobile Navigation (두 줄) */}
-          <div className="md:hidden">
-            <div className="flex items-center justify-between mb-2">
-              {/* Logo */}
-              <Link href="/" className="flex items-center">
-                <img
-                  src="/dabinko-logo.jpg"
-                  alt="DABINKO Logo"
-                  style={{
-                    width: '158px',
-                    height: '64px',
-                    objectFit: 'contain'
-                  }}
-                />
-              </Link>
-
-              {/* Top Navigation */}
-              <nav className="flex items-center space-x-6">
-                <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
-                <Link href="/humanoid" className="hover:text-gray-300 transition-colors">Humanoid</Link>
-                <Link href="/healthcare" className="hover:text-gray-300 transition-colors">Healthcare</Link>
-                <Link href="/en" className="hover:text-gray-300 transition-colors">English</Link>
-              </nav>
-            </div>
-
-            {/* Bottom Navigation */}
-            <div className="flex justify-end">
-              <nav className="flex items-center space-x-6">
-                <Link href="/smart-watch" className="hover:text-gray-300 transition-colors">Control with Smart Watch</Link>
-                <Link href="/ai-programming" className="hover:text-gray-300 transition-colors">AI P/G</Link>
-                <Link href="/service" className="hover:text-gray-300 transition-colors">A/S</Link>
-              </nav>
-            </div>
-          </div>
-        </div>
+        </nav>
       </header>
-
-      {/* Fixed Contact Text Links - 연락처 정보 업데이트 */}
-      <div className="fixed right-1 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
-        {/* WhatsApp */}
-        <a
-          href="https://wa.me/821087764677"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
-        >
-          <span className="text-[#25D366] font-semibold">WhatsApp</span>
-        </a>
-
-        {/* WeChat - QR 코드 표시 */}
-        <div className="relative group">
-          <a
-            href="#"
-            className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
-          >
-            <span className="text-[#07C160] font-semibold">WeChat</span>
-          </a>
-          {/* QR 코드 이미지 - hover 시 표시 */}
-          <div className="hidden group-hover:block absolute right-full top-0 mr-2 bg-white p-2 rounded shadow-lg">
-            <img src="/wechat-qr.jpg" alt="WeChat QR Code" className="w-32 h-32" />
-          </div>
-        </div>
-
-        {/* Telegram */}
-        <a
-          href="https://t.me/821087764677"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
-        >
-          <span className="text-[#0088cc] font-semibold">Telegram</span>
-        </a>
-
-        {/* Email */}
-        <a
-          href="mailto:dabinko@kita.net"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center bg-white rounded px-2 py-1.5 hover:opacity-90 transition-opacity shadow-md text-sm"
-        >
-          <span className="text-[#EA4335] font-semibold">E-mail</span>
-        </a>
-      </div>
-
-      {/* Main Content */}
-      {children}
-
-      {/* Footer */}
-      <footer className="bg-black text-white py-6">
-        <div className="container mx-auto px-4 text-center">
-          <p>© 2024 DABINKO. All rights reserved.</p>
-          <div className="mt-4 space-y-2">
-            <p>Contact: dabinko@kita.net</p>
-            <p>Mobile: +82108776467</p>
-            <p>SNS: WhatsApp, WeChat, Telegram</p>
-            <p className="text-sm text-gray-400">
-              (모바일 번호로 먼저 연락하면 이메일을 사용할 수 있습니다)
-            </p>
-            <p>Address: Innovation Center, Technology Park, Seoul, South Korea</p>
-          </div>
-        </div>
-      </footer>
+      <main className="flex-grow pt-12">
+        {children}
+      </main>
     </div>
   );
-} 
+};
+
+export default Layout; 
