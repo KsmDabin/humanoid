@@ -1,5 +1,5 @@
 'use client';
-import { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 
 const symptoms = [
   "Symptom 1",
@@ -15,7 +15,7 @@ export default function Home() {
   const [selectedSymptom, setSelectedSymptom] = useState('');
   const [expectedDate, setExpectedDate] = useState('');
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     try {
