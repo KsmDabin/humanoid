@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 // 메모리에 데이터 저장
 const serviceRequests: any[] = [];
 
-// Excel 서비스 사용하지 않음
 export async function POST(request: Request) {
   try {
     const data = await request.json();
