@@ -2,12 +2,6 @@
 const nextConfig = {
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
     domains: ['humanoid-dabinko.vercel.app']
   },
   async headers() {
@@ -41,14 +35,6 @@ const nextConfig = {
       fs: false,
     };
     return config;
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: '/api/:path*',
-      },
-    ];
   },
 }
 

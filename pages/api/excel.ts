@@ -35,6 +35,20 @@ export default async function handler(
     const sitePath = process.env.SHAREPOINT_SITE_PATH;
     const filePath = validatePath(process.env.EXCEL_FILE_PATH || '');
 
+    // 파일 접근 테스트
+    const fileInfo = await client
+      .api(`${sitePath}/drive/root:/${filePath}`)
+      .get();
+    console.log('File exists:', fileInfo);
+    
+    // 파일 쓰기 권한 테스트
+    const testSession = await client
+      .api(`${sitePath}/drive/root:/${filePath}:/workbook/createSession`)
+      .post({
+        persistChanges: true
+      });
+    console.log('Write permission confirmed:', testSession);
+
     await client.api(`${sitePath}/drive/root:/${filePath}:/workbook/tables/Table1/rows/add`)
       .post({
         values: [[

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@azure/identity": "^4.6.0",
+    "@azure/identity": "^4.7.0",
     "@google-cloud/local-auth": "^3.0.1",
     "@microsoft/microsoft-graph-client": "^3.0.7",
     "googleapis": "^144.0.0",

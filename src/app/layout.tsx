@@ -1,5 +1,4 @@
 'use client';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import './globals.css';
 
@@ -8,18 +7,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-
-  const navigation = [
-    { name: 'About', href: '/about' },
-    { name: 'Humanoid', href: '/humanoid' },
-    { name: 'Healthcare', href: '/healthcare' },
-    { name: 'Smart Watch', href: '/smart-watch' },
-    { name: 'AI P/G', href: '/ai-pg' },
-    { name: 'Service', href: '/service' },
-    { name: 'English', href: '/en' },
-  ];
-
   return (
     <html lang="en">
       <body>
@@ -33,26 +20,20 @@ export default function RootLayout({
                 DABINKO
               </Link>
               <div className="flex flex-wrap justify-center gap-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`hover:text-gray-300 px-3 py-2 rounded-md ${
-                      pathname === item.href ? 'bg-gray-700' : ''
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                <Link href="/about" className="hover:text-gray-300">About</Link>
+                <Link href="/humanoid" className="hover:text-gray-300">Humanoid</Link>
+                <Link href="/healthcare" className="hover:text-gray-300">Healthcare</Link>
+                <Link href="/smart-watch" className="hover:text-gray-300">Smart Watch</Link>
+                <Link href="/ai-pg" className="hover:text-gray-300">AI P/G</Link>
+                <Link href="/service" className="hover:text-gray-300">Service</Link>
+                <Link href="/en" className="hover:text-gray-300">English</Link>
               </div>
             </div>
           </nav>
         </header>
-
-        <main className="container mx-auto px-4 py-8">
+        <main>
           {children}
         </main>
-
         <footer className="bg-gray-100 mt-8">
           <div className="container mx-auto px-4 py-6">
             <p className="text-center text-gray-600">
