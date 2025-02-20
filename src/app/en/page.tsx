@@ -6,7 +6,7 @@ export default function EnglishPage() {
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold mb-4">Language Settings</h2>
           <p className="text-gray-700 mb-4">
-            Welcome to DABINKO's English version.
+            Welcome to DABINKO&apos;s English version.
           </p>
           <ul className="list-disc list-inside space-y-2">
             <li>English Documentation</li>

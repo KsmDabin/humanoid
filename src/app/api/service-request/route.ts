@@ -1,57 +1,59 @@
 import { NextResponse } from 'next/server';
+import { ExcelService } from '../../../lib/excel-service';
 
-// 메모리에 데이터 저장
-const serviceRequests: any[] = [];
+// 요청 데이터 타입 정의
+interface RequestData {
+  customerName: string;
+  phoneNumber: string;
+  address: string;
+  selectedSymptom: string;
+  expectedDate: string;
+}
 
 export async function POST(request: Request) {
   try {
-    const data = await request.json();
+    const data = await request.json() as RequestData;
     
-    // 새 서비스 요청 생성
-    const newRequest = {
-      id: Date.now().toString(),
+    const newRequest = ExcelService.addRequest({
       customerName: data.customerName,
       phoneNumber: data.phoneNumber,
       address: data.address,
       symptoms: data.selectedSymptom,
-      expectedDate: data.expectedDate,
-      createdAt: new Date()
-    };
-
-    // 메모리에 저장
-    serviceRequests.push(newRequest);
-
-    // 성공 응답 반환
-    return NextResponse.json({ 
-      success: true, 
-      data: newRequest,
-      message: 'Service request submitted successfully'
+      expectedDate: data.expectedDate
     });
 
-  } catch (error) {
-    console.error('Error processing request:', error);
+    return NextResponse.json({ 
+      success: true, 
+      data: newRequest 
+    });
+
+  } catch (err) {
+    console.error('Error processing request:', err);
+    
     return NextResponse.json(
       { 
-        success: false, 
-        error: 'Failed to process service request' 
+        success: false,
+        message: 'Failed to process request'
       },
       { status: 500 }
     );
   }
 }
 
-// GET 요청 처리 (옵션)
 export async function GET() {
   try {
+    const requests = ExcelService.getRequests();
     return NextResponse.json({ 
       success: true, 
-      data: serviceRequests 
+      data: requests 
     });
-  } catch (error) {
+  } catch (err) {
+    console.error('Error fetching requests:', err);
+    
     return NextResponse.json(
       { 
-        success: false, 
-        error: 'Failed to fetch service requests' 
+        success: false,
+        message: 'Failed to fetch requests'
       },
       { status: 500 }
     );
